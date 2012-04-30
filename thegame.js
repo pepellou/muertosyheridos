@@ -99,6 +99,10 @@ var showGame = function( req, res, id ) {
   });
 }
 
+var showGame = function( req, res, id ) {
+	res.respond( formHtml );
+}
+
 nerve.create( [
   [ /^\/([0-9]+)/, showGame ],
   [ nerve.post("/create"), createGame ],
