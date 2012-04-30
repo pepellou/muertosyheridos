@@ -1,0 +1,26 @@
+-*- markdown -*-
+
+# Snip #
+
+Snip is a simple pastebin. It was written as the example for an [article](http://howtonode.org/node-redis-fun) on [How To Node](http://howtonode.org).
+
+## Prerequisites ##
+
+* [node](http://github.com/ry/node)
+* [Redis](http://code.google.com/p/redis)
+* [Pygments](http://pygments.org)
+
+It also uses the following, but they are included in the source:
+
+* [redis-node-client](http://github.com/fictorial/redis-node-client)
+* [nerve](http://github.com/gjritter/nerve)
+* [underscore.js](http://github.com/documentcloud/underscore)
+
+## Running ##
+
+Start Redis on default port and localhost, do:
+
+    ./run snip.js
+
+Visit http://localhost:8000 and add snippets.
+
