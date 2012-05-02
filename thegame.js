@@ -1,9 +1,10 @@
 var redis = require('redis-client')
-  , nerve = require('nerve')
-  , sys = require('util')
-  , qs = require('querystring')
-  , cp = require('child_process')
-  , _ = require('underscore')._;
+	, nerve = require('nerve')
+	, sys = require('util')
+	, qs = require('querystring')
+	, cp = require('child_process')
+	, _ = require('underscore')._
+	, fs = require('fs');
 
 /* Passes cb to a new instance redis.Client.connect
  * but handles error in connecting
@@ -45,6 +46,8 @@ var formHtml = '<form action="/create" method="post">'
       +  genOpponentSelectionList()
       +  '</select>'
       +  '<input type="submit" value="Create!" /></form>';
+
+var loginHtml = fs.readFileSync('views/login.html').toString();
 
 var getPostParams = function(req, callback){ 
   var body = ''; 
@@ -103,9 +106,13 @@ var showGame = function( req, res, id ) {
 	res.respond( formHtml );
 }
 
-nerve.create( [
-  [ /^\/([0-9]+)/, showGame ],
-  [ nerve.post("/create"), createGame ],
-  [ "/", function( req, res ) { res.respond( formHtml ); } ]
-]).listen( 8000 );
+var login = function( req, res ) {
+	res.respond( loginHtml );
+}
 
+nerve.create( [
+	[ /^\/([0-9]+)/, showGame ],
+	[ nerve.post("/create"), createGame ],
+	[ "/login", login ],
+	[ "/", login ]
+]).listen( 8000 );
