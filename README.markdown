@@ -1,8 +1,8 @@
-# MuertosYHeridos #
+# MuertosYHeridos
 
 MuertosYHeridos is a simple social game. 
 
-## Prerequisites ##
+## Prerequisites
 
 * [node](http://github.com/ry/node)
 * [Redis](http://code.google.com/p/redis)
@@ -13,7 +13,7 @@ It also uses the following, but they are included in the source:
 * [nerve](http://github.com/gjritter/nerve)
 * [underscore.js](http://github.com/documentcloud/underscore)
 
-## Running ##
+## Running
 
 Start Redis on default port and localhost, do:
 
