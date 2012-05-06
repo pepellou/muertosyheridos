@@ -1,33 +1,8 @@
 var redis = require('redis-client')
 	, nerve = require('nerve')
-	, sys = require('util')
 	, qs = require('querystring')
-	, cp = require('child_process')
 	, _ = require('underscore')._
 	, fs = require('fs');
-
-/* Passes cb to a new instance redis.Client.connect
- * but handles error in connecting
- * accepts optional errback as second argument
- * the callback gets a this.redis representing the redis object
- *
- * Returns nothing
- */
-var withRedis = function( cb ) {
-  var errback = arguments[1];
-
-  var r = redis.createClient();
-
-  r.stream.on( 'connect', _.bind( cb, { redis : r } ) );
-
-  r.stream.on( "end", function(error) {
-    if( error ) {
-      process.stdio.writeError( "Error connecting to Redis database\n" );
-      if( typeof(errback) === "function" )
-        errback();
-    }
-  });
-}
 
 var opponent_selection = 
  [["random", "Random"],
