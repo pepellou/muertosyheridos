@@ -2,7 +2,8 @@ var redis = require('redis-client')
 	, nerve = require('nerve')
 	, qs = require('querystring')
 	, _ = require('underscore')._
-	, fs = require('fs');
+	, fs = require('fs')
+	, views = require('./src/views.js');
 
 var opponent_selection = 
  [["random", "Random"],
@@ -21,8 +22,6 @@ var formHtml = '<form action="/create" method="post">'
       +  genOpponentSelectionList()
       +  '</select>'
       +  '<input type="submit" value="Create!" /></form>';
-
-var loginHtml = fs.readFileSync('views/login.html').toString();
 
 var getPostParams = function(req, callback){ 
   var body = ''; 
@@ -81,9 +80,13 @@ var showGame = function( req, res, id ) {
 	res.respond( formHtml );
 }
 
+var loginHtml = fs.readFileSync('views/login.html').toString();
+
 var login = function( req, res ) {
 	res.respond( loginHtml );
 }
+
+login = views.create('./views/login.html');
 
 nerve.create( [
 	[ /^\/([0-9]+)/, showGame ],
