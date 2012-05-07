@@ -1,8 +1,55 @@
+<!DOCTYPE html>
 <html>
 <head>
-	<title>Muertos y heridos</title>
+	<title>board</title>
 </head>
 <body>
-	Ejemplo
+
+	<header id="headerLogin">
+		<figure id="imageLogo"><img src="#"></figure>
+		<h1>Muertos y heridos<h1>
+	</header>
+
+	<section id="contentBoard">
+		<section id="namePlayers">
+			<p id="namePlayer1"></p>
+			<p> VS </p>
+			<p id="namePlayer2"></p>
+		</section>
+
+		<section id="panelAddNumbers">
+			<form name="addNumbers" target="" method="post">
+				<input type="text" name="digit5"></input>
+				<input type="text" name="digit4"></input>
+				<input type="text" name="digit3"></input>
+				<input type="text" name="digit2"></input>
+				<input type="text" name="digit1"></input>
+				<input type="image" src="#"></input>
+			</form>
+		</section>
+
+		<section id="panelResults">
+			<p>turnos</p>
+			<article>
+				<div class="turnPlayer1Result">
+					<h6 class="digit5"></h6>
+					<h6 class="digit4"></h6>
+					<h6 class="digit3"></h6>
+					<h6 class="digit2"></h6>
+					<h6 class="digit1"></h6>
+					<p class="muertos"></p><p> M</p>
+				</div>
+				<div class="turnPlayer2Result">
+					<h6 class="digit5"></h6>
+					<h6 class="digit4"></h6>
+					<h6 class="digit3"></h6>
+					<h6 class="digit2"></h6>
+					<h6 class="digit1"></h6>
+					<p class="heridos"></p><p> H</p>
+				</div>
+			</article>
+		</section>
+
+	</section>
 </body>
 </html>
